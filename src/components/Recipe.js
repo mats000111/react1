@@ -2,7 +2,7 @@ import Ingredient from "./Ingredient";
 import IngredientList from "./IngredientList";
 
 export default function Recipe(recipe) {
-  const { name, cookTime, servings, instructions, ingredients } = recipe;
+  const { id, name, cookTime, servings, instructions, ingredients, handleRecipeDelete } = recipe;
 
   return (
     <div className="recipe">
@@ -10,7 +10,12 @@ export default function Recipe(recipe) {
         <h3 className="recipe__title">{name}</h3>
         <div>
             <button className="btn btn--primary mr-1">Edit</button>
-            <button className="btn btn--danger">Delete</button>
+            <button
+              className="btn btn--danger"
+              onClick={() => handleRecipeDelete(id)}
+            >
+              Delete
+            </button>
         </div>
       </div>
       <div className="recipe__row">
